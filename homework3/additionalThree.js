@@ -46,7 +46,12 @@ for (let i=0;i<a.length;i+=3){
 /*
 5. Вивести кожен елемент масиву, сусід справа якого є парним
 EXAMPLE: [ 1, 2, 3, 5, 7, 9, 56, 8, 67 ] -> Має бути виведено 1, 9, 56*/
-
+let Array=[ 1, 2, 3, 5, 7, 9, 56, 8, 67 ];
+for(let i=0;i<Array.length;i++){
+    if(Array[i]%2===0){
+        console.log(Array[i-1])
+    }
+}
 
 /*
 6. Є масив з числами [100,250,50,168,120,345,188], Які характеризують вартість окремої покупки. Обрахувати середній чек.*/
@@ -95,8 +100,8 @@ let citiesWithId = [
 
 З'єднати в один об'єкт користувача та місто з відповідними "id" та "user_id" .
     Записати цей об'єкт в новий масив*/
-/*
-let usersWithId = [
+
+/*let usersWithId = [
     {id: 1, name: 'vasya', age: 31, status: false},
     {id: 2, name: 'petya', age: 30, status: true},
     {id: 3, name: 'kolya', age: 29, status: true},
@@ -113,22 +118,13 @@ let usersWithCities = []
 for (let i = 0; i < usersWithId.length; i++) {
     for (let j = 0; j < citiesWithId.length; j++) {
         if (usersWithId[i].id === citiesWithId[j].user_id) {
-            aa = {
-                id: usersWithId[i].id,
-                name: usersWithId[i].name,
-                age: usersWithId[i].age,
-                status: usersWithId[i].status,
-                address: {
-                    user_id: citiesWithId[j].user_id,
-                    country: citiesWithId[j].country,
-                    city: citiesWithId[j].city
-                }
-            }
-            usersWithCities.push(aa)
-            console.log(usersWithCities)
+            usersWithId[i].address = citiesWithId[j]
         }
+
     }
-}*/
+}
+usersWithCities.push(usersWithId)
+console.log(usersWithCities)*/
 /*- Взяти масив з 10 чисел або створити його. Вивести в консоль тільки ті елементи, значення яких є парними.*/
 /*
 let num=[1,2,3,4,5,6,7,8,9,0]
