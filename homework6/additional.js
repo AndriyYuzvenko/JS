@@ -8,10 +8,11 @@
 // Примітка
 // Для тих, хто дуже розумний, та почне використовувати регулярні вирази одразу "ні". Своїм мозком подумайте над протоколом, з регулярками будете потім бавитись.
 
-// let email = 'someeMAIL@i.ua'
-// const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-// let validateEmail = (email, re) => re.test(email);
-// console.log(validateEmail(email, re))
+let email = 'someeMAIL@i.ua'
+const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+let validateEmail = (email, re) => re.test(email);
+console.log(validateEmail(email, re))
+
 // - є масивlet /
 // let coursesArray = [
 //     {
@@ -95,11 +96,12 @@
 //     let symb = "о", str = "Астрономия это наука о небесных объектах";
 // document.writeln(count(str, symb)) // 5
 // let str = "Астрономия это наука о небесных объектах";
-// let count = (item) => item.match(/[о]/g).length
-// console.log(count(str));
+// let symb = "о";
+// let count = (item1, item2) => item1.match(new RegExp(`[${item2}]`, 'gi')).length
+// console.log(count(str, symb));
 // - Напишіть функцію cutString(str, n), яка видаляє зайві слова з рядка str, залишивши у ній n слів.
-//     let str = "Сила тяжести приложена к центру масс тела";
+// let str = "Сила тяжести приложена к центру масс тела";
 // document.writeln(cutString(str, 5)) // 'Сила тяжести приложена к центру'
 // let str = "Сила тяжести приложена к центру масс тела";
-// let cutString = (item) => item.replace("масс тела", "");
-// console.log(cutString(str))
+// let cutString = (item1, item2) => item1.split(' ').slice(0, item2).join(' ')
+// console.log(cutString(str, 5))
