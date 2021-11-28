@@ -7,8 +7,19 @@
 //
 // Примітка
 // Для тих, хто дуже розумний, та почне використовувати регулярні вирази одразу "ні". Своїм мозком подумайте над протоколом, з регулярками будете потім бавитись.
+let email = 'someeMAIL@iu.ua'
+let correctEmail = (str) => {
+    let firstEmail = str.slice(0, str.indexOf('@'));
+    let secondEmail = str.slice(str.indexOf('@'), str.length)
+    let point = secondEmail.indexOf('.')
 
-
+    if (str.includes('@') && firstEmail.length > 2 && point >= 3) {
+        return true
+    } else {
+        return false
+    }
+}
+console.log(correctEmail(email));
 
 // - є масивlet /
 // let coursesArray = [
