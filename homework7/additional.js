@@ -24,7 +24,7 @@ let arr = {
         bs: 'harness real-time e-markets'
     }
 }
-console.log(arr)
+// console.log(arr)
 
 class User {
     constructor(id, name, username, email, address, phone, website, company) {
