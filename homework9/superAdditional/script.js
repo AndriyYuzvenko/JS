@@ -1,7 +1,3 @@
-// - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement. Всі данні в одному блоці.
-// - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement, розділивши всі властивості по своїм блокам (div>div*4)
-// - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement, розділивши всі властивості по своїм блокам , блок з адресою зробити окремим блоком, з блоками для кожної властивості
-
 let users = [
     {
         name: 'vasya',
@@ -69,6 +65,27 @@ let users = [
         status: true,
         address: {city: 'Cairo', country: 'Egypt', street: 'Seashore', houseNumber: 45}
     }];
+
+let div = document.createElement('div')
+document.body.append(div)
+// - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement. Всі данні в одному блоці.
+// div.insertAdjacentHTML('beforeend', users.map(item => `<div>${item.name} ${item.age} ${item.status} ${item.address.city} ${item.address.country} ${item.address.street} ${item.address.houseNumber}</div>`).join(''))
+// - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement, розділивши всі властивості по своїм блокам (div>div*4)
+// - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement, розділивши всі властивості по своїм блокам , блок з адресою зробити окремим блоком, з блоками для кожної властивості
+// div.insertAdjacentHTML('beforeend', users.map(item =>
+// `<div>
+// <div>${item.name}</div>
+// <div>${item.age} </div>
+// <div>${item.status} </div>
+// <div>
+// <nav>${item.address.city}</nav>
+// <nav>${item.address.country}</nav>
+// <nav>${item.address.street} </nav>
+// <nav>${item.address.houseNumber}</nav>
+// </div>
+// </div>`).join(''))
+
+
 // - З масиву users за допомогою циклу витягнути адреси користувачів і записати (скопіювати) їх в інший порожній масив.
 // let usersNew = users.map(item => item.address)
 // console.log(usersNew)
@@ -125,8 +142,8 @@ let rules = [
 //Створити скрипт який ітерує цей масив, та робить з кожне правило в окремому блоці.
 // //     При цому в блоці, номер правила записати в свій блок, текст правила записати в свій окремий блок.
 // //     Результатом відпрацювання скріпта повинна бути структура яка міститься в блоці wrap файла rule.html
-let div = document.createElement('div')
-div.id = 'wrapCreate'
-document.body.append(div)
-
-div.insertAdjacentHTML('beforeend', rules.map(item => `<div class="rules"><h2>${item.title}</h2><p>${item.body}</p></div>`).join(''))
+// let div = document.createElement('div')
+// div.id = 'wrapCreate'
+// document.body.append(div)
+//
+// div.insertAdjacentHTML('beforeend', rules.map(item => `<div class="rules"><h2>${item.title}</h2><p>${item.body}</p></div>`).join(''))
