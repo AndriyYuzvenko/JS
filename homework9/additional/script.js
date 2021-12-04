@@ -83,32 +83,44 @@ let usersList = [{
         bs: 'aggregate real-time technologies'
     }
 }, {
-    id: 10, name: 'Clementina DuBuque', username: 'Moriah.Stanton', email: 'Rey.Padberg@karina.biz', address: {
-        street: 'Kattie Turnpike', suite: 'Suite 198', city: 'Lebsackbury', zipcode: '31428-2261', geo: {
-            lat: '-38.2386', lng: '57.2232'
+    id: 10,
+    name: 'Clementina DuBuque',
+    username: 'Moriah.Stanton',
+    email: 'Rey.Padberg@karina.biz',
+    address: {
+        street: 'Kattie Turnpike',
+        suite: 'Suite 198',
+        city: 'Lebsackbury',
+        zipcode: '31428-2261',
+        geo: {
+            lat: '-38.2386',
+            lng: '57.2232'
         }
-    }, phone: '024-648-3804', website: 'ambrose.net', company: {
-        name: 'Hoeger LLC', catchPhrase: 'Centralized empowering task-force', bs: 'target end-to-end models'
+    },
+    phone: '024-648-3804',
+    website: 'ambrose.net',
+    company: {
+        name: 'Hoeger LLC',
+        catchPhrase: 'Centralized empowering task-force', bs: 'target end-to-end models'
     }
 }];
 
 // Створити під кожен елемент окремий блок. В цьому блоці, під кожну властивість, та властивості внутрішніх об'єктів створити свої окремі блок.
+
 let div = document.createElement('div')
 document.body.append(div)
-div.insertAdjacentHTML('beforeend', usersList.map(item => `<h1>${item.id}</h1>
-<p>${item.name}</p>
-<p>${item.username}</p>
-<p>${item.email}</p>
-<nav class="address">
-<p>${item['address']['street']}</p>
-<p>${item['address']['suite']}</p>
-<p>${item["address"]['city']}</p>
-<p>${item["address"]['zipcode']}</p>
-<p>${item["address"]['geo']['lat']}</p>
-<p>${item["address"]['geo']['lng']}</p>
-<p>${item['phone']}</p>
-<p>${item['website']}</p>
-<p>${item['company']['name']}</p>
-<p>${item['company']['catchPhrase']}</p>
-<p>${item['company']['bs']}</p>
-</nav>`).join(' '))
+const objRound = obj => {
+    let res = `<ul>`;
+    for (let key in obj) {
+        if (typeof obj[key] === 'object') {
+            res += `<li>${key}: ${objRound(obj[key])}</li>`;
+            continue;
+        }
+        res += `<li>${key}: ${obj[key]}</li>`;
+    }
+    res += `</ul>`;
+    return res;
+};
+usersList.forEach(e => {
+    div.insertAdjacentHTML('beforeEnd', objRound(e));
+});

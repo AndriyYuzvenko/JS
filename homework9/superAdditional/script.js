@@ -66,25 +66,28 @@ let users = [
         address: {city: 'Cairo', country: 'Egypt', street: 'Seashore', houseNumber: 45}
     }];
 
-let div = document.createElement('div')
-document.body.append(div)
 // - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement. Всі данні в одному блоці.
-// div.insertAdjacentHTML('beforeend', users.map(item => `<div>${item.name} ${item.age} ${item.status} ${item.address.city} ${item.address.country} ${item.address.street} ${item.address.houseNumber}</div>`).join(''))
 // - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement, розділивши всі властивості по своїм блокам (div>div*4)
 // - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement, розділивши всі властивості по своїм блокам , блок з адресою зробити окремим блоком, з блоками для кожної властивості
-// div.insertAdjacentHTML('beforeend', users.map(item =>
-// `<div>
-// <div>${item.name}</div>
-// <div>${item.age} </div>
-// <div>${item.status} </div>
-// <div>
-// <nav>${item.address.city}</nav>
-// <nav>${item.address.country}</nav>
-// <nav>${item.address.street} </nav>
-// <nav>${item.address.houseNumber}</nav>
-// </div>
-// </div>`).join(''))
 
+// let div = document.createElement('div')
+// document.body.append(div)
+const objRound = obj => {
+    let res = `<ul>`;
+    for (let key in obj) {
+        if (typeof obj[key] === 'object') {
+            res += `<li>${key}: ${objRound(obj[key])}</li>`;
+            continue;
+        }
+        res += `<li>${key}: ${obj[key]}</li>`;
+    }
+    res += `</ul>`;
+    return res;
+};
+
+users.forEach(e => {
+    div.insertAdjacentHTML('beforeEnd', objRound(e));
+});
 
 // - З масиву users за допомогою циклу витягнути адреси користувачів і записати (скопіювати) їх в інший порожній масив.
 // let usersNew = users.map(item => item.address)
