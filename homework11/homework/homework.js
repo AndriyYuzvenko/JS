@@ -22,7 +22,7 @@
 //     при відпарвці форми об'єкти зберігаються в масиві в локальному сховищі.
 // let clickSecond = document.getElementById('clickSecond')
 //
-// let arr = []
+// const arr = JSON.parse(localStorage.getItem('user')) || [];
 //
 // let content = (arr) => {
 //     class Users {
@@ -37,6 +37,7 @@
 //     let string = JSON.stringify(arr)
 //     localStorage.setItem('user', string)
 // }
+//
 // clickSecond.onclick = (e) => {
 //     e.preventDefault()
 //     content(arr)
