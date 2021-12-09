@@ -70,25 +70,24 @@ let users = [
 // - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement, розділивши всі властивості по своїм блокам (div>div*4)
 // - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement, розділивши всі властивості по своїм блокам , блок з адресою зробити окремим блоком, з блоками для кожної властивості
 
-// let div = document.createElement('div')
-// document.body.append(div)
-const objRound = obj => {
-    let res = `<ul>`;
-    for (let key in obj) {
-        if (typeof obj[key] === 'object') {
-            res += `<li>${key}: ${objRound(obj[key])}</li>`;
-            continue;
+let div = document.createElement('div')
+document.body.append(div)
+const rest = item => {
+    let list = `<ul>`
+    for (const listKey in item) {
+        if (typeof item[listKey] === 'object') {
+            list += `<li>${listKey}:${rest(item[listKey])}</li>`;
+        } else {
+            list += `<li>${listKey}:${item[listKey]}</li>`
         }
-        res += `<li>${key}: ${obj[key]}</li>`;
     }
-    res += `</ul>`;
-    return res;
-};
+    list += `</ul>`
+    return list
+}
 
 users.forEach(e => {
-    div.insertAdjacentHTML('beforeEnd', objRound(e));
-});
-
+    div.insertAdjacentHTML('beforeend', rest(e))
+})
 // - З масиву users за допомогою циклу витягнути адреси користувачів і записати (скопіювати) їх в інший порожній масив.
 // let usersNew = users.map(item => item.address)
 // console.log(usersNew)

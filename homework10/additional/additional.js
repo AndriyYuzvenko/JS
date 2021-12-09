@@ -95,6 +95,14 @@
 //     }
 //     images[i].style.display = 'block';
 // }
-
+let p=document.createElement('p')
+document.body.append(p)
+p.innerText='Как то так'
+// p.onmousedown=function (){
+// }
+p.onmouseup=function (){
+   this.style.fontWeight='bold'
+    console.log('2')
+}
 //     Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
 // *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
