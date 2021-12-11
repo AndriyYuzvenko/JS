@@ -20,7 +20,7 @@ fetch(' https://jsonplaceholder.typicode.com/users')
                 userFirst.append(contentFirst)
                 contentFirst.style.margin = '5px'
                 contentFirst.id = '1'
-                if (typeof param2[element2] === 'object') {
+                if (typeof param2[element2] === 'object') {   //як тут зробити рекурсію?
                     let arr = document.createElement('div')
                     contentFirst.append(arr)
                     arr.innerText = `${element2}= ${param2[element2]} `
