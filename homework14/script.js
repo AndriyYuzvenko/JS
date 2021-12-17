@@ -163,16 +163,18 @@
 //     .then(goingToBedNew => {
 //         console.log(goingToBedNew)
 //     })
+//     .catch(error=>{
+//         console.log(error)
+//     })
 
 //callback
 
 // let wakeUp = (item, callback) => {
 //     setTimeout(() => {
 //         if (item) {
-//             console.log('8:00 = я прокидаюся')
-//             callback()
+//             callback(null, '8:00 = я прокидаюся')
 //         } else {
-//             console.log('щось не працює')
+//             callback('щось не працює', null)
 //         }
 //     }, 2000)
 // }
@@ -180,10 +182,9 @@
 // let breakfast = (item, callback) => {
 //     setTimeout(() => {
 //         if (item) {
-//             console.log('між 8 і 8:30 я маю сніданок')
-//             callback()
+//             callback(null, 'між 8 і 8:30 я маю сніданок')
 //         } else {
-//             console.log('щось не працює')
+//             callback('щось не працює', null)
 //         }
 //     }, 2000)
 // }
@@ -191,10 +192,9 @@
 // let startLessons = (item, callback) => {
 //     setTimeout(() => {
 //         if (item) {
-//             console.log('о 8:30 я маю пари в універі')
-//             callback()
+//             callback(null, 'о 8:30 я маю пари в універі')
 //         } else {
-//             console.log('щось не працює')
+//             callback('щось не працює', null)
 //         }
 //     }, 2000)
 // }
@@ -202,10 +202,9 @@
 // let endLessons = (item, callback) => {
 //     setTimeout(() => {
 //         if (item) {
-//             console.log('о 16:00 в мене закінчуються пари в універі')
-//             callback()
+//             callback(null, 'о 16:00 в мене закінчуються пари в універі')
 //         } else {
-//             console.log('щось не працює')
+//             callback('щось не працює', null)
 //         }
 //     }, 2000)
 // }
@@ -213,10 +212,9 @@
 // let dinner = (item, callback) => {
 //     setTimeout(() => {
 //         if (item) {
-//             console.log('о 16:10 я маю обід')
-//             callback()
+//             callback(null, 'о 16:10 я маю обід')
 //         } else {
-//             console.log('щось не працює')
+//             callback('щось не працює', null)
 //         }
 //     }, 2000)
 // }
@@ -224,10 +222,9 @@
 // let work = (item, callback) => {
 //     setTimeout(() => {
 //         if (item) {
-//             console.log('від 16:20 до 17:20 працюю')
-//             callback()
+//             callback(null, 'від 16:20 до 17:20 працюю')
 //         } else {
-//             console.log('щось не працює')
+//             callback('щось не працює', null)
 //         }
 //     }, 2000)
 // }
@@ -235,10 +232,9 @@
 // let lessonEnglish = (item, callback) => {
 //     setTimeout(() => {
 //         if (item) {
-//             console.log('Від 17:30 до 18:30 маю урок з англійської')
-//             callback()
+//             callback(null, 'Від 17:30 до 18:30 маю урок з англійської')
 //         } else {
-//             console.log('щось не працює')
+//             callback('щось не працює', null)
 //         }
 //     }, 2000)
 // }
@@ -246,10 +242,9 @@
 // let lessonOkten = (item, callback) => {
 //     setTimeout(() => {
 //         if (item) {
-//             console.log('між 18:30 до 22:00 маю курси і роблю дз по них')
-//             callback()
+//             callback(null, 'між 18:30 до 22:00 маю курси і роблю дз по них')
 //         } else {
-//             console.log('щось не працює')
+//             callback('щось не працює', null)
 //         }
 //     }, 2000)
 // }
@@ -257,44 +252,95 @@
 // let freeTime = (item, callback) => {
 //     setTimeout(() => {
 //         if (item) {
-//             console.log('від 22:00 маю вільий час')
-//             callback()
+//             callback(null, 'від 22:00 маю вільий час')
 //         } else {
-//             console.log('щось не працює')
+//             callback('щось не працює', null)
 //         }
 //     }, 2000)
 // }
 //
-// let goingToBed = (item) => {
+// let goingToBed = (item, callback) => {
 //     setTimeout(() => {
 //         if (item) {
-//             console.log('01:00 лягаю спати')
+//             callback(null, '01:00 лягаю спати')
 //         } else {
-//             console.log('щось не працює')
+//             callback('щось не працює', null)
 //         }
 //     }, 2000)
 // }
-// wakeUp(true, () => {
-//     breakfast(true, () => {
-//         startLessons(true, () => {
-//             endLessons(true, () => {
-//                 dinner(true, () => {
-//                     work(true, () => {
-//                         lessonEnglish(true, () => {
-//                             lessonOkten(true, () => {
-//                                 freeTime(true, () => {
-//                                     goingToBed(true)
+// wakeUp(true, (error, wakeUpNew) => {
+//     if (error) {
+//         console.error(error)
+//     } else {
+//         console.log(wakeUpNew)
+//         breakfast(true, (error1, breakfastNew) => {
+//             if (error1) {
+//                 console.error(error1)
+//             } else {
+//                 console.log(breakfastNew)
+//                 startLessons(true, (error2, startLessonsNew) => {
+//                     if (error2) {
+//                         console.error(error2)
+//                     } else {
+//                         console.log(startLessonsNew)
+//                         endLessons(true, (error3, endLessonsNew) => {
+//                             if (error3) {
+//                                 console.error(error3)
+//                             } else {
+//                                 console.log(endLessonsNew)
+//                                 dinner(true, (error4, dinnerNew) => {
+//                                     if (error4) {
+//                                         console.error(error4)
+//                                     } else {
+//                                         console.log(dinnerNew)
+//                                         work(true, (error5, workNew) => {
+//                                             if (error5) {
+//                                                 console.error(error5)
+//                                             } else {
+//                                                 console.log(workNew)
+//                                                 lessonEnglish(true, (error6, lessonsEnglishNew) => {
+//                                                     if (error6) {
+//                                                         console.error(error6)
+//                                                     } else {
+//                                                         console.log(lessonsEnglishNew)
+//                                                         lessonOkten(true, (error7, lessonsOktenNew) => {
+//                                                             if (error7) {
+//                                                                 console.error(error7)
+//                                                             } else {
+//                                                                 console.log(lessonsOktenNew)
+//                                                                 freeTime(true, (error8, freeTimeNew) => {
+//                                                                     if (error8) {
+//                                                                         console.error(error8)
+//                                                                     } else {
+//                                                                         console.log(freeTimeNew)
+//                                                                         goingToBed(true, (error9, goingToBedNew) => {
+//                                                                             if (error9) {
+//                                                                                 console.error(error9)
+//                                                                             } else {
+//                                                                                 console.log(goingToBedNew)
+//                                                                             }
+//                                                                         })
+//                                                                     }
+//
+//                                                                 })
+//                                                             }
+//                                                         })
+//                                                     }
+//                                                 })
+//                                             }
+//                                         })
+//                                     }
 //                                 })
-//                             })
+//                             }
 //                         })
-//                     })
+//                     }
 //                 })
-//             })
+//             }
 //         })
-//     })
+//     }
 // })
 
-//async await
+// async await
 
 // let wakeUp = (item) => {
 //     return new Promise((resolve, reject) => {
@@ -417,26 +463,30 @@
 // }
 //
 // async function days() {
-//     const wakeUpNew = await wakeUp(true)
-//     console.log(wakeUpNew)
-//     const breakfastNew = await breakfast(true)
-//     console.log(breakfastNew)
-//     const startLessonsNew = await startLessons(true)
-//     console.log(startLessonsNew)
-//     const endLessonsNew = await endLessons(true)
-//     console.log(endLessonsNew)
-//     const dinnerNew = await dinner(true)
-//     console.log(dinnerNew)
-//     const workNew = await work(true)
-//     console.log(workNew)
-//     const lessonEnglishNew = await lessonEnglish(true)
-//     console.log(lessonEnglishNew)
-//     const lessonOktenNew = await lessonOkten(true)
-//     console.log(lessonOktenNew)
-//     const freeTimeNew = await freeTime(true)
-//     console.log(freeTimeNew)
-//     const goingToBedNew = await goingToBed(true)
-//     console.log(goingToBedNew)
+//     try {
+//         const wakeUpNew = await wakeUp(true)
+//         console.log(wakeUpNew)
+//         const breakfastNew = await breakfast(true)
+//         console.log(breakfastNew)
+//         const startLessonsNew = await startLessons(true)
+//         console.log(startLessonsNew)
+//         const endLessonsNew = await endLessons(true)
+//         console.log(endLessonsNew)
+//         const dinnerNew = await dinner(true)
+//         console.log(dinnerNew)
+//         const workNew = await work(true)
+//         console.log(workNew)
+//         const lessonEnglishNew = await lessonEnglish(true)
+//         console.log(lessonEnglishNew)
+//         const lessonOktenNew = await lessonOkten(true)
+//         console.log(lessonOktenNew)
+//         const freeTimeNew = await freeTime(true)
+//         console.log(freeTimeNew)
+//         const goingToBedNew = await goingToBed(true)
+//         console.log(goingToBedNew)
+//     } catch (error) {
+//         console.error(error)
+//     }
 // }
 //
 // days()
