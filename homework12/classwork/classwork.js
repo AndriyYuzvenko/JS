@@ -46,3 +46,26 @@
 //             user.append(button)
 //         })
 //     })
+let done = 0;
+
+function makeAPlan(doit) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (doit) {
+                done += 25;
+                console.log(done)
+                resolve(done)
+            } else {
+                reject('no')
+            }
+
+        }, 1000)
+    })
+
+}
+
+makeAPlan(true)
+    .then(doneNew => {
+        console.log(doneNew
+        )
+    })
