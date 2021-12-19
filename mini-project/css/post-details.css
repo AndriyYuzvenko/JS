@@ -1,0 +1,17 @@
+#comments {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    border: 1px solid red;
+}
+#post{
+    border: 1px solid cyan;
+}
+#commentsObject {
+    width: 23%;
+    padding: 10px;
+    border: 1px solid black;
+}
+#container{
+    border: 1px solid green;
+}

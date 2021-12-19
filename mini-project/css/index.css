@@ -1,0 +1,17 @@
+#container {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+#userContent {
+    display: flex;
+    column-gap: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#containerUser {
+    margin-top: 10px;
+    width: 50%;
+}
